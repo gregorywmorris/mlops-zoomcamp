@@ -14,7 +14,8 @@ class IngestData:
         pass
 
     def get_data(self) -> pd.DataFrame:
-        df = pd.read_csv("./data/olist_customers_dataset.csv")
+        """Get csv data"""
+        df = pd.read_csv("../data/olist_customers_dataset.csv")
         return df
 
 
@@ -27,9 +28,9 @@ def ingest_data() -> pd.DataFrame:
         df: pd.DataFrame
     """
     try:
-        ingest_data = IngestData()
-        df = ingest_data.get_data()
+        ingesting_data = IngestData()
+        df = ingesting_data.get_data()
         return df
     except Exception as e:
-        logging.error(e)
+        logging.error('Error ingesting data %s', e)
         raise e
